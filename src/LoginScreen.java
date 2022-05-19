@@ -2,7 +2,6 @@ import java.awt.Dimension;
 import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.net.URL;
@@ -24,6 +23,10 @@ public class LoginScreen implements ActionListener {
 	private static JFrame loginScreenFrame;
 	
 	public static void main(String[] args) {
+		/*
+		 * {"username": "password", "kirk": "niverba"}
+		 */
+		
 		try {
 			URL url = LoginScreen.class.getResource("loginCredentials.txt");
 			if(url == null) throw new FileNotFoundException();
@@ -91,6 +94,7 @@ public class LoginScreen implements ActionListener {
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		String username = usernameTextField.getText();
+		@SuppressWarnings("deprecation")
 		String password = passwordTextField.getText();
 		
 		if(username.isBlank()) {
@@ -102,17 +106,19 @@ public class LoginScreen implements ActionListener {
 		}
 		
 		if(!credentials.containsKey(username) || !credentials.get(username).equals(password)) {
-			JOptionPane.showMessageDialog(null, "Invalid username / password. " + (failedCtr == 3 ? "Program is terminating." : (3 - failedCtr) + " more chance."), "Invalid credentials.", JOptionPane.WARNING_MESSAGE);
 			if(failedCtr == 3) {
+				JOptionPane.showMessageDialog(null, "Sorry, you have reached the limit of 3 attempts, Goodbye!", "Unauthorized User", JOptionPane.ERROR_MESSAGE);
 				System.exit(0);
+			} else {
+				JOptionPane.showMessageDialog(null, "Invalid username / password. " + (failedCtr == 3 ? "Program is terminating." : (3 - failedCtr) + " more chance."), "Invalid credentials.", JOptionPane.WARNING_MESSAGE);
 			}
 			failedCtr++;
 			return;
 		}
 		
+		JOptionPane.showMessageDialog(null, "Authorized Credentials", "Message", JOptionPane.INFORMATION_MESSAGE);
 		loginScreenFrame.setVisible(false);
-		RecordScreen recordScreen = new RecordScreen();
-		
+		new RecordScreen();
 	}
 
 }

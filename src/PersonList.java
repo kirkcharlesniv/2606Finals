@@ -18,7 +18,7 @@ public class PersonList {
 	
 	public Person findRecordByName(String name) {
 		for (Person person : database) {
-	        if (person.getName().equals(name)) {
+	        if (person.getName().toLowerCase().contains(name.toLowerCase())) {
 	            return person;
 	        }
 	    }
@@ -34,9 +34,5 @@ public class PersonList {
 		if(!database.remove(record)) {
 			 throw new NoSuchElementException();
 		}
-	}
-	
-	public void generateCsv() {
-		throw new UnsupportedOperationException();
 	}
 }

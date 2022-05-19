@@ -3,6 +3,8 @@ import java.util.ArrayList;
 import javax.swing.table.AbstractTableModel;
 
 public class PersonTableModel extends AbstractTableModel {
+	private static final long serialVersionUID = -4869513310623463266L;
+	
 	private String[] columnNames = {"Name","Birthday","Age"};
 	private ArrayList<Person> database;
 	

@@ -1,7 +1,5 @@
 import java.time.LocalDate;
 import java.time.Period;
-import java.time.format.DateTimeFormatter;
-import java.time.format.FormatStyle;
 
 public class Person {
 	private String name;
@@ -13,7 +11,7 @@ public class Person {
 		this.birthDay = birthDay;
 		this.age = calculateAge(birthDay, LocalDate.now());
 	}
-	
+
 	public String getName() {
 		return name;
 	}
@@ -22,8 +20,8 @@ public class Person {
 		this.name = name;
 	}
 
-	public String getBirthDay() {
-		return birthDay.format(DateTimeFormatter.ofLocalizedDate(FormatStyle.MEDIUM));
+	public LocalDate getBirthDay() {
+		return birthDay;
 	}
 
 	public void setBirthDay(LocalDate birthDay) {
@@ -37,8 +35,8 @@ public class Person {
 	public void setAge(int age) {
 		this.age = age;
 	}
-	
-	public static int calculateAge(LocalDate birthDate, LocalDate currentDate) {
+
+	private static int calculateAge(LocalDate birthDate, LocalDate currentDate) {
         if ((birthDate != null) && (currentDate != null)) {
             return Period.between(birthDate, currentDate).getYears();
         } else {
