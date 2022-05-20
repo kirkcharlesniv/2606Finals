@@ -121,7 +121,7 @@ public class RecordScreen extends JFrame {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				setVisible(false);
-				AddRecordScreen addRecordScreenFrame = new AddRecordScreen();
+				AddRecordScreen addRecordScreenFrame = new AddRecordScreen(personTableModel, databaseRepository);
 				addRecordScreenFrame.addWindowListener(new java.awt.event.WindowAdapter() {
 			        @Override
 			        public void windowClosed(java.awt.event.WindowEvent windowEvent) {
@@ -139,6 +139,10 @@ public class RecordScreen extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				setVisible(false);
 				RemoveRecordScreen removeRecordScreenFrame = new RemoveRecordScreen(personTableModel, databaseRepository);
+				new RemoveRecordScreen(personTableModel, databaseRepository);
+				new RemoveRecordScreen(personTableModel, databaseRepository);
+				new RemoveRecordScreen(personTableModel, databaseRepository);
+				new RemoveRecordScreen(personTableModel, databaseRepository);
 				removeRecordScreenFrame.addWindowListener(new java.awt.event.WindowAdapter() {
 			        @Override
 			        public void windowClosed(java.awt.event.WindowEvent windowEvent) {
