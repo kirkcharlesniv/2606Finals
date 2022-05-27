@@ -11,8 +11,6 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 
 public class RemoveRecordScreen extends JFrame {
-	private static final long serialVersionUID = -2063413908100995336L;
-	
 	private static JLabel nameLabel;
 	private static JTextField nameTextField;
 	private PersonTableModel personTableModel;
@@ -76,7 +74,9 @@ public class RemoveRecordScreen extends JFrame {
 	private void removeRecord(String value, boolean shouldGoBack) {
 		try {
 			personList.removeRecord(value);
-			
+			nameTextField.setText("");
+			nameTextField.requestFocus();
+			nameTextField.setCaretPosition(0);
 			personTableModel.fireTableDataChanged();
 			
 			if(shouldGoBack) {

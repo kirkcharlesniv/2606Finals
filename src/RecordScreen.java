@@ -47,10 +47,10 @@ public class RecordScreen extends JFrame {
 
 		// Testing Purposes
 //		System.out.println(databaseRepository.getDatabase());
-		databaseRepository.addRecord(new Person("Kirk", LocalDate.of(2003, 05, 23)));
-		databaseRepository.addRecord(new Person("Mark Quinto", LocalDate.of(1980, 01, 01)));
-		databaseRepository.addRecord(new Person("Mark Balgos", LocalDate.of(1980, 01, 01)));
-		databaseRepository.addRecord(new Person("Pao", LocalDate.now()));
+//		databaseRepository.addRecord(new Person("Kirk", LocalDate.of(2003, 05, 23)));
+//		databaseRepository.addRecord(new Person("Mark Quinto", LocalDate.of(1980, 01, 01)));
+//		databaseRepository.addRecord(new Person("Mark Balgos", LocalDate.of(1980, 01, 01)));
+//		databaseRepository.addRecord(new Person("Pao", LocalDate.now()));
 //		System.out.println(databaseRepository.getDatabase());
 //		databaseRepository.removeRecord("Kirk");
 //		System.out.println(databaseRepository.getDatabase());
@@ -139,10 +139,6 @@ public class RecordScreen extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				setVisible(false);
 				RemoveRecordScreen removeRecordScreenFrame = new RemoveRecordScreen(personTableModel, databaseRepository);
-				new RemoveRecordScreen(personTableModel, databaseRepository);
-				new RemoveRecordScreen(personTableModel, databaseRepository);
-				new RemoveRecordScreen(personTableModel, databaseRepository);
-				new RemoveRecordScreen(personTableModel, databaseRepository);
 				removeRecordScreenFrame.addWindowListener(new java.awt.event.WindowAdapter() {
 			        @Override
 			        public void windowClosed(java.awt.event.WindowEvent windowEvent) {

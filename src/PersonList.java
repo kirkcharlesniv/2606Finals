@@ -18,7 +18,7 @@ public class PersonList {
 	
 	public Person findRecordByName(String name) {
 		for (Person person : database) {
-	        if (person.getName().toLowerCase().contains(name.toLowerCase())) {
+	        if (person.getName().toLowerCase().equals(name.toLowerCase())) {
 	            return person;
 	        }
 	    }

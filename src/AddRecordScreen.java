@@ -180,17 +180,18 @@ public class AddRecordScreen extends JFrame {
 			return;
 
 		if (name.isBlank()) {
-			JOptionPane.showMessageDialog(null, "Name is required.", "Please fill up all the forms!", JOptionPane.INFORMATION_MESSAGE);
+			JOptionPane.showMessageDialog(null, "Name is required.", "Please fill up all the forms!",
+					JOptionPane.INFORMATION_MESSAGE);
 			return;
 		}
 
 		Date birthDate = buildLocalDateFromString(buildStringFromInputs(month, date, year));
 		LocalDate birthDateParsed = birthDate.toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
-		
+
 		personList.addRecord(new Person(name, birthDateParsed));
 		personTableModel.fireTableDataChanged();
-		
-		if(shouldGoBack) {
+
+		if (shouldGoBack) {
 			super.dispose();
 		}
 	}
