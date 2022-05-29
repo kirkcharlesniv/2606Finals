@@ -186,6 +186,7 @@ public class AddRecordScreen extends JFrame {
 		}
 
 		Date birthDate = buildLocalDateFromString(buildStringFromInputs(month, date, year));
+		System.out.println(month + " " + date + " " + year);
 		LocalDate birthDateParsed = birthDate.toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
 
 		personList.addRecord(new Person(name, birthDateParsed));
